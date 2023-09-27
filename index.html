@@ -3,45 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InshutiTune</title>
-    <!-- Add your CSS links here for styling -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Music Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        .music-player {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        audio {
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to our Music Platform</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Explore</a></li>
-                <li><a href="#">Genres</a></li>
-                <li><a href="#">My Library</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Sign Up</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="music-player">
+        <h1>Music Platform</h1>
+        <audio id="audio" src="sample.mp3" controls></audio>
+        <br>
+        <button id="playPauseButton">Play</button>
+    </div>
 
-    <section class="featured-music">
-        <h2>Featured Music</h2>
-        <!-- Add featured music here -->
-    </section>
+    <script>
+        const audio = document.getElementById('audio');
+        const playPauseButton = document.getElementById('playPauseButton');
 
-    <section class="explore">
-        <h2>Explore</h2>
-        <!-- Add music exploration options here -->
-    </section>
+        let isPlaying = false;
 
-    <section class="genres">
-        <h2>Genres</h2>
-        <!-- List of music genres -->
-    </section>
+        playPauseButton.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                playPauseButton.textContent = 'Play';
+            } else {
+                audio.play();
+                playPauseButton.textContent = 'Pause';
+            }
 
-    <section class="footer">
-        <p>&copy; 2023 InshutiTune</p>
-    </section>
-
-    <!-- Add your JavaScript scripts here for interactivity -->
-    <script src="script.js"></script>
+            isPlaying = !isPlaying;
+        });
+    </script>
 </body>
 </html>
