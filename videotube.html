@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>My Playlist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
 </head>
 <body>
-    <h1 style="color:olive;">Summer Playlist</h1>
-    <hr>
-    <p style="color: steelblue;">1. </p>
-<video controls loop src="">
-</video>
-<br>
-<p style="color: steelblue;">2. </p>
-<video controls loop src="">
-</video>
-<br>
-<p style="color: steelblue;">3. </p>
-<video controls loop src="">
-</video>
-<br>
-<p style="color: steelblue;">4. </p>
-<video controls loop src="">
-</video>
-    </body>
+    <div style="text-align: center;">
+        <video id="videoPlayer" width="640" height="360" controls>
+            <source src="your_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="playPause()">Play/Pause</button>
+        <button onclick="muteUnmute()">Mute/Unmute</button>
+    </div>
+
+    <script>
+        var video = document.getElementById("videoPlayer");
+
+        function playPause() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+        function muteUnmute() {
+            if (video.muted) {
+                video.muted = false;
+            } else {
+                video.muted = true;
+            }
+        }
+    </script>
+</body>
 </html>
